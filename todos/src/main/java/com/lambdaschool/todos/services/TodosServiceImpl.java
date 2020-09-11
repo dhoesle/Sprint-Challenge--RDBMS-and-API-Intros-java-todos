@@ -22,7 +22,7 @@ public class TodosServiceImpl implements TodosService
     {
         Todos currentTodo = todosrepos.findById(todoid).orElseThrow(() -> new EntityNotFoundException("Todo " + " Not" +
                 " Found"));
-        currentTodo.setCompleted(true);
+        currentTodo.setCompleted(!currentTodo.isCompleted());
 
         todosrepos.save(currentTodo);
 
